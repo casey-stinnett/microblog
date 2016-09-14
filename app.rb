@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
-require './models'
+# require './models'
 require 'bundler/setup'
 require 'sinatra/flash'
 enable :sessions
-set :database, "sqlite3:flash.sqlite3"
+set :database, "sqlite3:micropost.sqlite3"
