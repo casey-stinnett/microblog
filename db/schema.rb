@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913225124) do
+ActiveRecord::Schema.define(version: 20160915203831) do
 
   create_table "follows", force: :cascade do |t|
     t.integer "user_id"
@@ -19,15 +19,18 @@ ActiveRecord::Schema.define(version: 20160913225124) do
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "content"
+    t.string   "content", limit: 150
     t.datetime "created"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "fname"
-    t.string "lname"
-    t.string "email"
-    t.string "password"
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "email"
+    t.string   "password"
+    t.datetime "bday"
+    t.string   "city"
+    t.string   "state"
   end
 
 end

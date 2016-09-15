@@ -1,0 +1,25 @@
+<div class="main">
+	<div class="post-wrapper">
+		<% if session[:user_id] %>
+			<% user = User.find(session[:user_id]) %>
+			<% posts = user.posts.first(10) %>
+			<% if posts.count == 0 %>
+				<div class="first-post">
+					<span class="username"><%= user.full_name %></span>
+					<span class="time-created">Now</span>
+					<div class="content">
+						<textarea name="content" id="new-content" cols="30" rows="10" class="new-content" placeholder="What's going on?" maxlength="150"></textarea>
+					</div>
+				</div>
+			<% else %>
+				<% posts.each do |post| %>
+						<span class="created"><%= post.created %></span>
+						<div class="content"><%= post.content %></div>
+				<% end %>
+			<% end %>
+
+		<% else %>
+			<div class="notsigned-in">You need to sign in to see your posts!</div>
+		<% end %>
+	</div>
+</div>

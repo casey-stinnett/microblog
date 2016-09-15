@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MicroBlog</title>
+	<link rel="stylesheet" href="index.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="index.js"></script>
+	<script src="https://use.fontawesome.com/1a97ba4316.js"></script>
+</head>
+<body>
+	<header>
+		<div class="main-btn fleft big-padding">MicroBlog</div>
+		<nav class="fright">
+			<ul>
+				<% if session[:user_id] %>
+					<li><%= User.find(session[:user_id]).full_name %></li>
+				<% else %>
+					<li class="fleft small-padding session-options">
+						<form id="sign-in">
+							<input class="big-input" type="text" placeholder="Email" name="email">
+							<input class="big-input" type="password" placeholder="Password" name="password">
+							<input class="button" type="submit" value="Sign In">
+						</form>
+					</li>
+					<li id="sign-up-link" class="fleft small-padding session-options"><a href="/sign-up">Sign Up</a></li>
+				<% end %>
+			</ul>
+		</nav>
+	</header>
+	<%= yield %>
+</body>
+</html>
