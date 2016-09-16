@@ -1,29 +1,31 @@
-<div class="post-wrapper">
-	<% if session[:user_id] %>
-		<% user = User.find(session[:user_id]) %>
-		<% posts = user.posts.first(10) %>
-		<div class="post-box bottom-border">
-			<form id="post-form" action="/post" method="POST">
-				<div class="post-header">
-					<span class="username"><%= user.full_name %></span>
-					<span class="created">Now</span>
-				</div>					
-				<textarea class="content big-input content-no-focus" name="content" id="post-content" cols="30" rows="10" placeholder="What's going on?" maxlength="150"></textarea>
-				<button class="button disabled green" id="post-button" disabled="true" type="submit" form="post-form">Post</button>
-			</form>
-		</div>
-		<% if posts.count != 0 %>
-			<% posts.each do |post| %>
-				<div class="post-box side-borders bottom-border">
+<div class="main">
+	<div class="post-wrapper">
+		<% if session[:user_id] %>
+			<% user = User.find(session[:user_id]) %>
+			<% posts = user.posts.first(10) %>
+			<div class="post-box bottom-border">
+				<form id="post-form" action="/post" method="POST">
 					<div class="post-header">
 						<span class="username"><%= user.full_name %></span>
-						<span class="created"><%= post.created %></span>
-					</div>	
-					<div class="content"><%= post.content %></div>
-				</div>
+						<span class="created">Now</span>
+					</div>					
+					<textarea class="content big-input content-no-focus" name="content" id="post-content" cols="30" rows="10" placeholder="What's going on?" maxlength="150"></textarea>
+					<button class="button disabled green" id="post-button" disabled="true" type="submit" form="post-form">Post</button>
+				</form>
+			</div>
+			<% if posts.count != 0 %>
+				<% posts.each do |post| %>
+					<div class="post-box side-borders bottom-border">
+						<div class="post-header">
+							<span class="username"><%= user.full_name %></span>
+							<span class="created"><%= post.created %></span>
+						</div>	
+						<div class="content"><%= post.content %></div>
+					</div>
+				<% end %>
 			<% end %>
+		<% else %>
+			<div class="notsigned-in">You need to sign in to see your posts!</div>
 		<% end %>
-	<% else %>
-		<div class="notsigned-in">You need to sign in to see your posts!</div>
-	<% end %>
+	</div>
 </div>
