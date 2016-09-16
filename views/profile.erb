@@ -1,0 +1,20 @@
+<div class="pretty-form clearfix">
+	<p class="banner">Edit Your Profile</p>
+	<form action="/profile" id="profile-form" method="POST">
+		<div class="form-item">
+			<input class="big-input" type="text" name="fname" value="<%= @user.fname %>">
+			<input class="big-input" type="text" name="lname" value="<%= @user.lname %>">
+			<input class="big-input" type="text" name="email" value="<%= @user.email %>">
+			<div class="for-icon">
+				<input class="big-input" type="password" name="password" value="<%= @user.password %>">
+				<span>
+					<i class="fa fa-eye show-pass eye" title="Show Password"></i>
+				</span>
+			</div>
+			<input class="big-input" type="text" name="city" value="<%= @user.city %>">
+			<input class="big-input" type="text" name="state" value="<%= @user.state %>">
+			<input class="big-input" type="text" name="bday" value="<%= @user.bday %>">
+		</div>
+		<button class="button" type="submit" form="profile-form">Save Profile</button>
+	</form>
+</div>
