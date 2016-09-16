@@ -21,3 +21,15 @@
 	<form id="delete-form" action="/delete-account" method="POST" style="display:none">
 	</form>
 </div>
+
+<div class="profile-posts"><h2>All of your posts</h2></div>
+
+<% @user.posts.each do |post| %>
+	<div class="post-box side-borders bottom-border">
+		<div class="post-header">
+			<span class="username"><%= @user.full_name %></span>
+			<span class="created"><%= post.created %></span>
+		</div>	
+		<div class="content"><%= post.content %></div>
+	</div>
+<% end %>
