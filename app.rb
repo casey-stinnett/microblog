@@ -51,8 +51,11 @@ post '/profile' do
 	redirect '/profile'
 end
 
-get '/account-deleted' do
-
+post '/delete-account' do
+	user = current_user
+	user.destroy
+	session[:user_id] = nil
+	redirect '/'
 end
 
 post '/post' do
