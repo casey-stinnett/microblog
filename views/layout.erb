@@ -10,17 +10,18 @@
 </head>
 <body>
 	<header>
-		<div class="main-btn fleft big-padding">MicroBlog</div>
+		<div class="main-btn fleft big-padding"><a href="/" title="Home">MicroBlog</a></div>
 		<nav class="fright">
 			<ul>
 				<% if session[:user_id] %>
-					<li><%= User.find(session[:user_id]).full_name %></li>
+					<li class="fleft small-padding session-options"><a href="/profile" title="Edit Profile"><%= User.find(session[:user_id]).full_name %></a></li>
+					<li class="fleft small-padding session-options"><a href="/sign-out">Sign Out</a></li>
 				<% else %>
 					<li class="fleft small-padding session-options">
-						<form id="sign-in">
+						<form id="sign-in" action="/sign-in" method="POST">
 							<input class="big-input" type="text" placeholder="Email" name="email">
-							<input class="big-input" type="password" placeholder="Password" name="password">
-							<input class="button" type="submit" value="Sign In">
+							<%= erb :password %>
+							<button class="button" type="submit" form="sign-in">Sign In</button>
 						</form>
 					</li>
 					<li id="sign-up-link" class="fleft small-padding session-options"><a href="/sign-up">Sign Up</a></li>
@@ -28,6 +29,8 @@
 			</ul>
 		</nav>
 	</header>
-	<%= yield %>
+	<div class="main">
+		<%= yield %>
+	</div>
 </body>
 </html>
