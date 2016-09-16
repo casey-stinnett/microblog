@@ -1,25 +1,27 @@
-<div class="pretty-form clearfix">
-	<p class="banner">Edit Your Profile</p>
-	<form action="/profile" id="profile-form" method="POST">
-		<div class="form-item">
-			<input class="big-input" type="text" name="fname" value="<%= @user.fname %>">
-			<input class="big-input" type="text" name="lname" value="<%= @user.lname %>">
-			<input class="big-input" type="text" name="email" value="<%= @user.email %>">
-			<div class="for-icon">
-				<input class="big-input" type="password" name="password" value="<%= @user.password %>">
-				<span>
-					<i class="fa fa-eye show-pass eye" title="Show Password"></i>
-				</span>
+<div class="main">
+	<div class="pretty-form clearfix">
+		<p class="banner">Edit Your Profile</p>
+		<form action="/profile" id="profile-form" method="POST">
+			<div class="form-item">
+				<input class="big-input" type="text" name="fname" value="<%= @user.fname %>">
+				<input class="big-input" type="text" name="lname" value="<%= @user.lname %>">
+				<input class="big-input" type="text" name="email" value="<%= @user.email %>">
+				<div class="for-icon">
+					<input class="big-input" type="password" name="password" value="<%= @user.password %>">
+					<span>
+						<i class="fa fa-eye show-pass eye" title="Show Password"></i>
+					</span>
+				</div>
+				<input class="big-input" type="text" name="city" value="<%= @user.city %>">
+				<input class="big-input" type="text" name="state" value="<%= @user.state %>">
+				<input class="big-input" type="text" name="bday" value="<%= @user.bday %>">
 			</div>
-			<input class="big-input" type="text" name="city" value="<%= @user.city %>">
-			<input class="big-input" type="text" name="state" value="<%= @user.state %>">
-			<input class="big-input" type="text" name="bday" value="<%= @user.bday %>">
-		</div>
-		<button class="button green" type="submit" form="profile-form">Save Profile</button>
-		<button class="button red" id="delete-button">Delete Account</button>
-	</form>
-	<form id="delete-form" action="/delete-account" method="POST" style="display:none">
-	</form>
+			<button class="button green" type="submit" form="profile-form">Save Profile</button>
+			<button class="button red" id="delete-button">Delete Account</button>
+		</form>
+		<form id="delete-form" action="/delete-account" method="POST" style="display:none">
+		</form>
+	</div>
 </div>
 
 <div class="profile-posts"><h2>All of your posts</h2></div>
