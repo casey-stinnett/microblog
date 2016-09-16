@@ -163,9 +163,9 @@ a {
 
 /*Main Feed*/
 .main {
-	margin: 75px auto;
 	width: 590px;
 	background: #fff;
+	margin: 75px auto;
 }
 
 .clearfix:after {
