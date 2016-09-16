@@ -15,6 +15,9 @@
 			<input class="big-input" type="text" name="state" value="<%= @user.state %>">
 			<input class="big-input" type="text" name="bday" value="<%= @user.bday %>">
 		</div>
-		<button class="button" type="submit" form="profile-form">Save Profile</button>
+		<button class="button green" type="submit" form="profile-form">Save Profile</button>
+		<button class="button red" id="delete-button">Delete Account</button>
+	</form>
+	<form id="delete-form" action="/delete-account" method="POST" style="display:none">
 	</form>
 </div>

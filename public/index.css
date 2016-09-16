@@ -1,3 +1,7 @@
+body {
+	background: rgb(237,239,240);
+}
+
 header {
 	background: #fff;
     box-shadow: 0 0 1px rgba(0,65,94,0.2);
@@ -36,8 +40,6 @@ header ul {
 	height: 37px;
 	line-height: 12px;
 	padding: 0 22px;
-	background-color: #5fcf80;
-	border: solid 2px #5fcf80;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	-ms-appearance: none;
@@ -60,9 +62,27 @@ header ul {
 	white-space: nowrap;
 }
 
-.button:not(.disabled):hover {
+.green {
+	background-color: #5fcf80;
+	border: solid 2px #5fcf80;
+}
+
+.green:hover {
 	border-color: #3ac162;
     background-color: #3ac162;
+}
+
+.red {
+	background-color: #e15258;
+	border: solid 2px #e15258;
+}
+
+.red:hover {
+	background-color: #ef4249;
+	border: solid 2px #ef4249;
+}
+
+.button:not(.disabled):hover {
 	cursor: pointer;
 }
 
@@ -72,10 +92,7 @@ header ul {
     background: white;
     text-align: left;
     box-shadow: 0px 2px 0px rgba(0,0,0,0.15);
-    margin-bottom: 80px;
-    width: 34%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 90%;
     min-width: 450px;
 }
 
@@ -146,7 +163,7 @@ a {
 
 /*Main Feed*/
 .main {
-	margin: 58px auto;
+	margin: 75px auto;
 	width: 590px;
 	background: #fff;
 }
