@@ -19,6 +19,12 @@ header ul {
 	padding: 7px
 }
 
+#header-block {
+	height: 1;
+	width: 100%;
+	margin-top: 75px;
+}
+
 .big-input {
 	background: #e8ebed;
     margin: 0;
@@ -165,7 +171,16 @@ a {
 .main {
 	width: 590px;
 	background: #fff;
-	margin: 75px auto;
+	margin: 0 auto;
+}
+
+.profile-main {
+	width: 590px;
+	background: #fff;
+}
+
+.profile-posts {
+	margin-left: 55px;
 }
 
 .clearfix:after {
@@ -232,4 +247,8 @@ form:not(#profile-form) .for-icon span {
 
 .bottom-border {
 	border-bottom: 1px solid #e1e8ed;
+}
+
+.others {
+	
 }

@@ -29,3 +29,9 @@
 		<% end %>
 	</div>
 </div>
+
+<div class="others fright">
+	<% User.all.each do |user| %>
+		<a href="/profile/<%= user.id %>"></a>
+	<% end %>
+</div>

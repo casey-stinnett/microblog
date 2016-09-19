@@ -14,7 +14,7 @@
 		<nav class="fright">
 			<ul>
 				<% if session[:user_id] %>
-					<li class="fleft small-padding session-options"><a href="/profile" title="Edit Profile"><%= User.find(session[:user_id]).full_name %></a></li>
+					<li class="fleft small-padding session-options"><a href="/profile/<%= session[:user_id] %>" title="Edit Profile"><%= User.find(session[:user_id]).full_name %></a></li>
 					<li class="fleft small-padding session-options"><a href="/sign-out">Sign Out</a></li>
 				<% else %>
 					<li class="fleft small-padding session-options">
@@ -29,6 +29,7 @@
 			</ul>
 		</nav>
 	</header>
+	<div id="header-block"></div>
 	<%= yield %>
 </body>
 </html>
