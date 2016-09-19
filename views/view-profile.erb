@@ -1,0 +1,21 @@
+<div class="main">
+	<div class="view-profile-wrapper">
+		<p class="fleft"><%= @view_user.full_name %>'s Posts</p> 
+		<a href="/view-profile/<%= @view_user.id %>" class="button green fright topmarg8">Follow</a>
+		<% if flash[:notice] %>
+			<div class="flash-success">
+				<%= flash[:notice] %>
+			</div>
+		<% end %>
+	</div>
+
+	<% @view_user.posts.each do |post| %>
+		<div class="post-box side-borders bottom-border">
+			<div class="post-header">
+				<span class="username"><%= @view_user.full_name %></span>
+				<span class="created"><%= post.created %></span>
+			</div>	
+			<div class="content"><%= post.content %></div>
+		</div>
+	<% end %>
+</div>

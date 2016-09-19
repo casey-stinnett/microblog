@@ -23,9 +23,9 @@ post '/sign-up' do
 end
 
 post '/sign-in' do
-	user = User.where(email: params[:email]).first
-	if user && User.where(password: params[:password])
-		set_user user.id
+	@user = User.where(email: params[:email]).first
+	if @user && User.where(password: params[:password])
+		set_user @user.id
 	else
 		flash[:notice] = "Either your email or your password is incorrect."
 	end
@@ -52,26 +52,42 @@ post '/profile' do
 end
 
 post '/delete-account' do
-	user = current_user
-	user.destroy
+	@user = current_user
+	@user.destroy
 	session[:user_id] = nil
 	redirect '/'
 end
 
 post '/post' do
-	post = Post.create(user_id: session[:user_id], content: params[:content], created: Time.now);
+	@post = Post.create(user_id: session[:user_id], content: params[:content], created: Time.now);
 	redirect '/'
 end
 
+get '/all-users' do
+	@users = User.all
+	erb :'all-users'
+end
+
+get '/view-profile/:id' do 
+	@view_user = User.find(params[:id])
+	erb :'view-profile'
+end
+
+post '/follow/:follow_id' do
+	Follow.create({user_id: current_user.id, follow_id: params[:follow_id]})
+	flash[:notice] = "You are now following #{User.find(params[:follow_id]).full_name}!"
+	redirect :"/view-profile/#{params[:follow_id]}"
+end
+
 def current_user
-	user_id = session[:user_id]
-	if user_id
+	@user_id = session[:user_id]
+	if @user_id
 		@current_user = User.find(user_id)		
 	end
 end
 
 def curr_user_id
-	user_id = session[:user_id]
+	@user_id = session[:user_id]
 	if user_id
 		@id = user_id
 	end
