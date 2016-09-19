@@ -37,8 +37,8 @@ get '/sign-out' do
 	redirect '/'
 end
 
-get '/profile' do
-	@user = current_user
+get '/profile/:id' do
+	@user = User.find(params[:id])
 	erb :profile
 end
 
@@ -48,7 +48,7 @@ post '/profile' do
 		@user[k] = v
 	end
 	@user.save
-	redirect '/profile'
+	redirect "/profile/#{@user.id}"
 end
 
 post '/delete-account' do
