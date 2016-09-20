@@ -181,6 +181,8 @@ a {
 
 .profile-posts {
 	margin-left: 55px;
+	min-width: 580px;
+    min-height: 400px;
 }
 
 .clearfix:after {

@@ -1,7 +1,9 @@
 <div class="main">
 	<div class="view-profile-wrapper">
 		<p class="fleft"><%= @view_user.full_name %>'s Posts</p> 
-		<a href="/view-profile/<%= @view_user.id %>" class="button green fright topmarg8">Follow</a>
+		<form id="follow-form" action="/follow/<%= @view_user.id %>" method="POST">
+			<button class="button green fright topmarg8" form="follow-form" type="submit">Follow</button>
+		</form>
 		<% if flash[:notice] %>
 			<div class="flash-success">
 				<%= flash[:notice] %>

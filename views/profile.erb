@@ -24,11 +24,6 @@
 	</div>
 </div>
 
-<div class="following">
-	<% @user.follows.each do |follow| %>
-		<p><%= User.find(follow.follow.followed_id).full_name %></p>
-	<% end %>
-</div>
 
 <div class="profile-posts fleft">
 	<h2>All of your posts</h2>
@@ -42,4 +37,15 @@
 			<div class="content"><%= post.content %></div>
 		</div>
 	<% end %>
+</div>
+
+<div class="following-wrapper fleft">
+	<div class="following">
+		<% @user.follows.each do |follow| %>
+			<p><%= User.find(follow.followed_id).full_name %></p>
+			<form action="/unfollow/<%= follow.id %>" id="unfollow-form" method="POST">
+				<button class="red button fleft" form="unfollow-form" type="submit">Unfollow</button>
+			</form>
+		<% end %>
+	</div>
 </div>

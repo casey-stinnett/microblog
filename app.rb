@@ -74,15 +74,20 @@ get '/view-profile/:id' do
 end
 
 post '/follow/:follow_id' do
-	Follow.create({user_id: current_user.id, follow_id: params[:follow_id]})
+	Follow.create({user_id: current_user.id, followed_id: params[:follow_id]})
 	flash[:notice] = "You are now following #{User.find(params[:follow_id]).full_name}!"
 	redirect :"/view-profile/#{params[:follow_id]}"
+end
+
+post '/unfollow/:follow_id' do
+	Follow.where(user_id: current_user.id, followed_id: params[:follow_id]).destroy_all
+	redirect "/profile/#{current_user.id}"
 end
 
 def current_user
 	@user_id = session[:user_id]
 	if @user_id
-		@current_user = User.find(user_id)		
+		@current_user = User.find(@user_id)		
 	end
 end
 
