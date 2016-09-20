@@ -1,0 +1,7 @@
+<% @users.each do |user| %>
+ <% if user.id != session[:user_id] %>
+	<p>
+		<a href="/view-profile/<%= user.id %>"><%= user.full_name %></a>
+	</p>
+ <% end %>
+<% end %>

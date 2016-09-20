@@ -181,6 +181,8 @@ a {
 
 .profile-posts {
 	margin-left: 55px;
+	min-width: 580px;
+    min-height: 400px;
 }
 
 .clearfix:after {
@@ -251,4 +253,13 @@ form:not(#profile-form) .for-icon span {
 
 .others {
 	
+}
+
+.view-profile-wrapper {
+	display: inline-block;
+	width: 100%;
+}
+
+.topmarg8 {
+	margin-top: 8px;
 }
